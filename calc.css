@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 12px;
+}
+
+.display {
+    height: 32px;
+    text-align: center;
+}
+
+
+
+input {
+    -webkit-user-select: none;
+    user-select: none;
+}
