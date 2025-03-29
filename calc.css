@@ -4,25 +4,135 @@
     box-sizing: border-box;
 }
 
+
+:root {
+    --BGCOLOR: #fff;
+    --BTNBGCOLOR: whitesmoke;
+    --INPUTBG: #333;
+    --TXTCLR: #000;
+    --WHITE: #000;
+    --BG: lightblue;
+}
+
+
+.dark-mode {
+    --BGCOLOR: #000;
+    --BTNBGCOLOR: #242222;
+    --TXTCLR: #fff;
+    --WHITE: #fff;
+    --BG: rgb(1, 1, 45);
+}
+
+
 body {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--BG);
+}
+
+h2 {
+    text-align: center;
+    font-size: 15px;
+    color: var(--TXTCLR);
+    margin-top: 35px;
 }
 
 button {
-    padding: 12px;
+    padding: 15px;
+    border: none;
+    font-weight: bolder;
+    background: var(--BTNBGCOLOR);
+    color: var(--WHITE);
 }
 
-.display {
-    height: 32px;
-    text-align: center;
+button:hover {
+    opacity: .7;
 }
 
-
+button:active {
+    background: var(--WHITE);
+    color: var(--BGCOLOR);
+}
 
 input {
     -webkit-user-select: none;
     user-select: none;
+    width: 100%;
+    margin-bottom: 2em;
+    border: none;
+    height: 3.5em;
+    font-weight: bolder;
+    text-align: right;
+    padding-right: 1em;
+    background: var(--BGCOLOR);
+    color: var(--TXTCLR);
+    
+   
 }
+
+.container {
+    min-width: 300px;
+    border: 2px solid;
+    border-radius: 12px;
+    padding: 20px;
+    background: var(--BGCOLOR);
+    border: none;
+    box-shadow: 2px 2px 5px var(--WHITE);
+    position: relative;
+    
+}
+
+.calc-body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .4em;
+}
+
+.del {
+    grid-column: span 2;
+    background: red;
+}
+
+.clear {
+    grid-column: span 2;
+    grid-row-start: 5;
+    background: orange;
+
+}
+
+.equal {
+    grid-column: span 2;
+    grid-row-start: 5;
+    background: green;
+}
+
+.themeBtn {
+    background: var(--BTNBGCOLOR);
+    position: absolute;
+    top: 10px;
+    right:  10px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.themeBtn svg {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    fill: var(--WHITE);
+}
+
+.themeBtn svg:last-child {
+    display: none;
+} 
+
+.dark-mode .themeBtn svg:last-child {
+    display: block;
+} 
+.dark-mode .themeBtn svg:first-child {
+    display: none;
+} 
