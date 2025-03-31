@@ -2,6 +2,26 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  outline: none;
+}
+
+:root {
+  --WHITE: #fff;
+  --BLACK: #000;
+  --BGCLOR: rgb(86, 86, 148);
+  --CONBG: #f9f9f9;
+  --DSCREENCLOR: #ecf3f3;
+  --BTNBG: #ecf0f3;
+  --BOXSHADOW: rgba(10, 10, 10, 0.16);
+}
+
+.dark-mode {
+  --WHITE: #000;
+  --BLACK: #fff;
+  --CONBG: #000;
+  --DSCREENCLOR: rgb(15, 13, 13);
+  --BTNBG: #111;
+  --BOXSHADOW: rgba(0, 0, 0, 0.16);
 }
 
 body {
@@ -9,26 +29,135 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(1, 1, 45);
-  color: #fff;
+  background: var(--BGCLOR);
+  color: var(--WHITE);
 }
 
+.theme {
+  text-align: end;
+  background: var(--BLACK);
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.theme svg {
+  height: 15px;
+  width: 15px;
+  display: flex;
+  fill: var(--WHITE);
+}
+
+.theme svg:first-child {
+  display: none;
+}
+
+.dark-mode .theme svg:first-child{
+  display: block;
+}
+.dark-mode .theme svg:last-child{
+  display: none;
+}
+
+h2 {
+  color: var(--BLACK);
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
 
 .display {
- background: red;
- display: flex;
+  color: var(--BLACK);
+  width: 100%;
+ height: 70px;
+ align-items: center;
+ padding: 0 10px;
  justify-content: space-between;
+ margin-bottom: 15px;
+ border-radius: 5px;
+ background: var(--DSCREENCLOR);
+ border: none;
+ box-shadow: -5px -5px 12px var(--WHITE),
+              5px 5px 12px var(--BOXSHADOW);
+
+}
+
+.result {
+  color: green;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+}
+
+.figures {
+  text-align: end;
+  margin-top: 10px;
+  color: var(--BLACK);
 }
 .container {
   border:  2px solid;
   padding: 15px;
   border-radius: 12px;
+  background: var(--CONBG);
+  box-shadow: 5px 5px 12px var(--WHITE), 5px 5px 12px var(--BOXSHADOW) ;
+  
 }
 
-.container button {
-  height: 30px;
-  width: 30px;
+.container .operators button {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
   appearance: none;
   border: none;
+  background: var(--BTNBG);
+  color: var(--BLACK);
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  box-shadow: -5px -5px 12px var(--WHITE),
+              5px 5px 12px var(--BOXSHADOW);
+
 }
+.container .operators button:hover {
+  border: 2px solid var(--BGCLOR);
+  opacity: 3;
+}
+
+.container .operators .f-keys {
+  background: orangered;
+  border-radius: 12px;
+}
+.container .operators .equal {
+  background: green;
+  grid-column-start: 4;
+  grid-row-start: 5;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.container .operators .key {
+  grid-column: span 2;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.container .operators .del {
+  background: #ff0000;
+ 
+}
+
+.container .operators .clear {
+  background: #ffa500;
+} 
+.operators {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .5em;
+}
+
+
 
